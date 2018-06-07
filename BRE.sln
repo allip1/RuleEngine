@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRE", "BRE\BRE.csproj", "{BC43AE3A-D22B-45B4-9A13-59ADA72BAB4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRE.Test", "BRE.Test\BRE.Test.csproj", "{796C6F8B-B094-4167-8161-27E862C5B103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRE.Start", "BRE.Start\BRE.Start.csproj", "{30721B87-3B52-4119-ADFC-794251AA469B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC43AE3A-D22B-45B4-9A13-59ADA72BAB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC43AE3A-D22B-45B4-9A13-59ADA72BAB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC43AE3A-D22B-45B4-9A13-59ADA72BAB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC43AE3A-D22B-45B4-9A13-59ADA72BAB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796C6F8B-B094-4167-8161-27E862C5B103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796C6F8B-B094-4167-8161-27E862C5B103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796C6F8B-B094-4167-8161-27E862C5B103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796C6F8B-B094-4167-8161-27E862C5B103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30721B87-3B52-4119-ADFC-794251AA469B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30721B87-3B52-4119-ADFC-794251AA469B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30721B87-3B52-4119-ADFC-794251AA469B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30721B87-3B52-4119-ADFC-794251AA469B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
