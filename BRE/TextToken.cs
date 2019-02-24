@@ -9,6 +9,7 @@ namespace BRE
         Word,
         ParentheseStart,
         ParentheseStop,
+        TernaryEnd,
         Operator,
         EndOfSentence
 	}
@@ -165,6 +166,7 @@ namespace BRE
     
     public enum TokenOperator
 	{
+		Ternary,
 		Add,
 		Subtract,
 		Divide,
@@ -218,6 +220,8 @@ namespace BRE
 				case TextTokenType.Operator:
 
 					switch (this.RawDataString) {
+						case "?":
+                            return TokenOperator.Ternary;
 						case "+":
 							return TokenOperator.Add;
 						case "-":
@@ -247,9 +251,10 @@ namespace BRE
 					return TextTokenType.ParentheseStart;
 				case TextTokenType.ParentheseStop:
 					return TextTokenType.ParentheseStop;
-
-				case TextTokenType.Word:
-
+				case TextTokenType.TernaryEnd:
+                    return TextTokenType.TernaryEnd;
+	    		case TextTokenType.Word:
+               
 					return this.RawDataString;
 
 

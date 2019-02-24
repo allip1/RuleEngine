@@ -59,6 +59,26 @@ namespace BRE
 	}
 
 
+	public class TernaryExpressionNode : IExpression
+	{
+		public ExpressionType Type { get; set; }
+        public IValue Value { get; set; }
+        public IValue EvaluatedValue { get; set; }
+        public IExpression First { get; private set; }
+        public IExpression Second { get; private set; }
+		public IExpression Third { get; private set; }
+
+        public String BinaryOperator { get; private set; }
+        public String StringValue { get; set; }
+
+		public TernaryExpressionNode(IExpression first, IExpression second, IExpression third)
+		{
+			this.First = first;
+			this.Second = second;
+			this.Third = third;
+		}
+	}
+
 	public class BinaryExpressionNode : IExpression
 	{
 
@@ -97,7 +117,7 @@ namespace BRE
     {
 
 		public EqualExpressionNode(IExpression left, IExpression right)
-			: base(left, right, BinaryExpressionType.GreaterThan, "==")
+			: base(left, right, BinaryExpressionType.Equal, "==")
         {
 
         }
@@ -116,7 +136,7 @@ namespace BRE
     {
 
         public LessThanExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.GreaterThan, "<")
+            : base(left, right, BinaryExpressionType.LessThan, "<")
         {
 
         }
@@ -135,7 +155,7 @@ namespace BRE
     {
 
 		public LessThanOrEqualExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.GreaterThan, "<=")
+            : base(left, right, BinaryExpressionType.LessThanOrEqual, "<=")
         {
 
         }
@@ -173,7 +193,7 @@ namespace BRE
     {
 
 		public GreaterThanOrEqualExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.GreaterThan, ">=")
+            : base(left, right, BinaryExpressionType.GreaterThanOrEqual, ">=")
         {
 
         }
@@ -212,7 +232,7 @@ namespace BRE
     {
 
 		public OrExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.And, "||")
+            : base(left, right, BinaryExpressionType.Or, "||")
         {
 
         }
@@ -254,7 +274,7 @@ namespace BRE
     {
 
 		public DivideExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.Multiply, "/")
+            : base(left, right, BinaryExpressionType.Divide, "/")
         {
 
         }
@@ -273,7 +293,7 @@ namespace BRE
     {
 
 		public SubtractExpressionNode(IExpression left, IExpression right)
-            : base(left, right, BinaryExpressionType.Multiply, "-")
+            : base(left, right, BinaryExpressionType.Subtract, "-")
         {
 
         }

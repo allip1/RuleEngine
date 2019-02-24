@@ -54,6 +54,8 @@ namespace BRE
                     return new StartParentheseToken(token, this);
 				case TextTokenType.ParentheseStop:
                     return new StopParentheseToken(token, this);
+				case TextTokenType.TernaryEnd:
+					return new EndTernaryToken(token, this);
 				case TextTokenType.EndOfSentence:
 					return new EndToken(token, this);
 			}

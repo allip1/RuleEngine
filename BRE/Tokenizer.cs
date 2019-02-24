@@ -27,6 +27,16 @@ namespace BRE
                     index++;
 
                 }
+				// if starts with ":" then its ternary ending
+				else if (text[index] == ':')
+                {
+                    TextToken token = new TextToken();
+                    token.Type = TextTokenType.TernaryEnd;
+					token.RawData.Add(':');
+                    tokens.Add(token);
+                    index++;
+
+                }
                 // if starts with "(" then pick that up and continue
                 else if (text[index] == '(')
                 {
@@ -154,7 +164,7 @@ namespace BRE
 
         private static bool IsOperator(char c)
         {
-            return c == '+' || c == '-' || c == '*' || c == '/' || c == '<' || c == '>';
+			return c == '+' || c == '-' || c == '*' || c == '/' || c == '<' || c == '>' || c == ':' || c == '?';
         }
     }
 }

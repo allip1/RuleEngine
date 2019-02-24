@@ -26,6 +26,7 @@ namespace BRE
 
 		public TextTokenType OriginalType { get { return this.OriginalToken.Type; }}
 
+
         private IValue value;
         public IValue Value
         {
@@ -108,6 +109,15 @@ namespace BRE
             return new VariableValue(this.OriginalToken.RawDataString);
         }
     }
+       
+	public class EndTernaryToken : Token
+    {
+		public EndTernaryToken(TextToken token, Parser parser)
+     : base(token, parser)
+        {
+        }
+    }
+
     
 	public class StopParentheseToken : Token
     {
@@ -143,6 +153,8 @@ namespace BRE
         
 		private Dictionary<TokenOperator, int> OperatorPrecedence = new Dictionary<TokenOperator, int>()
         {
+			{ TokenOperator.Ternary, 20 },
+
             { TokenOperator.Add, 50 },
 			{ TokenOperator.Subtract, 50 },
 
@@ -174,6 +186,13 @@ namespace BRE
 			
 			switch(Operator)
 			{
+				case TokenOperator.Ternary:
+            	    var first = left;
+                    var second = this.Parser.ParseExpression(0);
+                    this.Parser.Advance(TextTokenType.TernaryEnd);
+                    var third = this.Parser.ParseExpression(0);
+                    return new TernaryExpressionNode(first, second, third);    
+
 				case TokenOperator.Add:
 					return new AddExpressionNode(left, this.Parser.ParseExpression(this.LeftBindingPower));
 				case TokenOperator.Subtract:

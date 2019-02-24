@@ -4,8 +4,35 @@ using Xunit;
 namespace BRE.Test
 {
     public class ParserTests
-    {
+	{
 
+		[Fact]
+        public void Ternary_Expression_Parsed_Correctly()
+        {
+
+			string input = " 1 == 2 ? 2 : 3";
+
+            var TextTokens = TextTokenizer.TextTokenize(input);
+
+            Parser parsers = new Parser(TextTokens);
+
+            var AST = parsers.ParseExpression();
+
+            var ternary = (TernaryExpressionNode)AST;
+
+			var first = (BinaryExpressionNode)ternary.First;
+            
+			var second = (ConstantExpression)ternary.Second;
+
+			var third = (ConstantExpression)ternary.Third;
+           
+
+            Assert.Equal(BinaryExpressionType.Equal, first.BinaryType);
+			Assert.NotNull(second);
+			Assert.NotNull(third);
+
+        }
+        
 		[Fact]
         public void Basic_Boolean_Logic_Got_Correct_AST()
         {
